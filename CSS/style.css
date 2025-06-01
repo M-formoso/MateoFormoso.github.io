@@ -3,10 +3,18 @@
     --primary-color: #3a86ff;
     --secondary-color: #8338ec;
     --dark-color: #1a1a2e;
-    --light-color: #f8f9fa;
+    --light-color: #8596a7;
     --success-color: #38b000;
     --font-main: 'Poppins', sans-serif;
     --transition: all 0.3s ease;
+    
+    /* Variables adicionales para mejor control de colores */
+    --text-primary: #f8f9fa;
+    --text-secondary: rgba(248, 249, 250, 0.8);
+    --text-muted: rgba(248, 249, 250, 0.7);
+    --background-card: rgba(248, 249, 250, 0.05);
+    --background-section: rgba(26, 26, 46, 0.5);
+    --border-color: rgba(248, 249, 250, 0.1);
 }
 
 * {
@@ -18,7 +26,7 @@
 body {
     font-family: var(--font-main);
     background-color: var(--dark-color);
-    color: var(--light-color);
+    color: var(--text-primary);
     line-height: 1.6;
     overflow-x: hidden;
 }
@@ -62,7 +70,7 @@ body {
 }
 
 .nav-links a {
-    color: var(--light-color);
+    color: var(--text-primary);
     text-decoration: none;
     font-weight: 500;
     font-size: 1rem;
@@ -97,7 +105,7 @@ body {
 .hamburger div {
     width: 25px;
     height: 3px;
-    background-color: var(--light-color);
+    background-color: var(--text-primary);
     margin: 5px;
     transition: var(--transition);
 }
@@ -156,12 +164,13 @@ body {
 .hero h1 {
     font-size: 4rem;
     margin-bottom: 1rem;
+    color: var(--text-primary);
 }
 
 .hero h3 {
     font-size: 1.5rem;
     font-weight: 400;
-    color: rgba(248, 249, 250, 0.8);
+    color: var(--text-secondary);
     margin-bottom: 2rem;
 }
 
@@ -193,6 +202,7 @@ body {
 .hero-btn.outline {
     background: transparent;
     border: 2px solid var(--primary-color);
+    color: var(--primary-color);
 }
 
 .hero-btn.outline:hover {
@@ -215,6 +225,7 @@ body {
     display: inline-block;
     position: relative;
     margin-bottom: 1rem;
+    color: var(--text-primary);
 }
 
 .section-title h2::after {
@@ -242,6 +253,7 @@ body {
 .about-text p {
     margin-bottom: 1.5rem;
     font-size: 1.1rem;
+    color: var(--text-primary);
 }
 
 .skills {
@@ -284,8 +296,8 @@ body {
 .about-image img {
     width: 280px;
     height: 280px;
-    border-radius: 50%; /* Imagen circular */
-    object-fit: cover; /* Para que la imagen se ajuste bien al círculo */
+    border-radius: 50%;
+    object-fit: cover;
     box-shadow: 
         0 20px 40px rgba(58, 134, 255, 0.3),
         0 0 0 8px rgba(58, 134, 255, 0.1);
@@ -442,9 +454,10 @@ body {
         height: 270px;
     }
 }
+
 /* Proyectos Section */
 .projects {
-    background-color: rgba(26, 26, 46, 0.5);
+    background-color: var(--background-section);
 }
 
 .projects-grid {
@@ -454,7 +467,7 @@ body {
 }
 
 .project-card {
-    background-color: rgba(248, 249, 250, 0.05);
+    background-color: var(--background-card);
     border-radius: 10px;
     overflow: hidden;
     transition: var(--transition);
@@ -489,10 +502,11 @@ body {
 .project-content h3 {
     font-size: 1.5rem;
     margin-bottom: 0.5rem;
+    color: var(--text-primary);
 }
 
 .project-content p {
-    color: rgba(248, 249, 250, 0.7);
+    color: var(--text-muted);
     margin-bottom: 1rem;
 }
 
@@ -560,7 +574,7 @@ body {
     position: relative;
     width: calc(50% - 30px);
     padding: 1.5rem;
-    background-color: rgba(248, 249, 250, 0.05);
+    background-color: var(--background-card);
     border-radius: 10px;
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
     transition: var(--transition);
@@ -604,12 +618,17 @@ body {
 .timeline-content h3 {
     margin-bottom: 0.5rem;
     font-size: 1.3rem;
+    color: var(--text-primary);
 }
 
 .timeline-content h4 {
     color: var(--primary-color);
     font-weight: 500;
     margin-bottom: 1rem;
+}
+
+.timeline-content p {
+    color: var(--text-primary);
 }
 
 /* Contacto Section */
@@ -630,6 +649,7 @@ body {
 .contact-info p {
     margin-bottom: 2rem;
     font-size: 1.1rem;
+    color: var(--text-primary);
 }
 
 .contact-details {
@@ -640,6 +660,7 @@ body {
     display: flex;
     align-items: center;
     margin-bottom: 1rem;
+    color: var(--text-primary);
 }
 
 .contact-details i {
@@ -660,16 +681,17 @@ body {
     display: block;
     margin-bottom: 0.5rem;
     font-weight: 500;
+    color: var(--text-primary);
 }
 
 .input-group input,
 .input-group textarea {
     width: 100%;
     padding: 0.8rem 1rem;
-    background-color: rgba(248, 249, 250, 0.05);
-    border: 1px solid rgba(248, 249, 250, 0.1);
+    background-color: var(--background-card);
+    border: 1px solid var(--border-color);
     border-radius: 5px;
-    color: var(--light-color);
+    color: var(--text-primary);
     font-family: var(--font-main);
     font-size: 1rem;
     transition: var(--transition);
@@ -707,7 +729,7 @@ body {
 
 /* Footer */
 footer {
-    background-color: rgba(26, 26, 46, 0.5);
+    background-color: var(--background-section);
     padding: 2rem 5%;
     text-align: center;
 }
@@ -730,8 +752,8 @@ footer {
     align-items: center;
     width: 40px;
     height: 40px;
-    background-color: rgba(248, 249, 250, 0.05);
-    color: var(--light-color);
+    background-color: var(--background-card);
+    color: var(--text-primary);
     border-radius: 50%;
     transition: var(--transition);
     text-decoration: none;
@@ -743,7 +765,7 @@ footer {
 }
 
 .copyright {
-    color: rgba(248, 249, 250, 0.7);
+    color: var(--text-muted);
     font-size: 0.9rem;
 }
 
@@ -918,6 +940,159 @@ footer {
     }
 }
 
+/* Contact Section Styles Mejorado */
+.contact-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    padding: 2rem;
+}
+
+.contact-info {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.contact-info p {
+    font-size: 1.1rem;
+    line-height: 1.6;
+    color: var(--text-primary);
+    margin-bottom: 2rem;
+}
+
+.contact-details {
+    list-style: none;
+    padding: 0;
+}
+
+.contact-details li {
+    display: flex;
+    align-items: center;
+    margin-bottom: 1.5rem;
+    font-size: 1.1rem;
+    color: var(--text-primary);
+}
+
+.contact-details i {
+    background: linear-gradient(45deg, #667eea, #764ba2);
+    color: white;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 1rem;
+    font-size: 1.2rem;
+}
+
+.contact-form {
+    background: var(--background-card);
+    backdrop-filter: blur(10px);
+    border: 1px solid var(--border-color);
+    border-radius: 20px;
+    padding: 2.5rem;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+}
+
+.input-group {
+    margin-bottom: 1.5rem;
+}
+
+.input-group label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: 600;
+    color: var(--text-primary);
+    font-size: 1rem;
+}
+
+.input-group input,
+.input-group textarea {
+    width: 100%;
+    padding: 1rem;
+    border: 2px solid var(--border-color);
+    border-radius: 10px;
+    font-size: 1rem;
+    background: var(--background-card);
+    color: var(--text-primary);
+    transition: all 0.3s ease;
+    box-sizing: border-box;
+}
+
+.input-group input:focus,
+.input-group textarea:focus {
+    outline: none;
+    border-color: #667eea;
+    background: rgba(248, 249, 250, 0.1);
+    box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+}
+
+.input-group input::placeholder,
+.input-group textarea::placeholder {
+    color: var(--text-muted);
+}
+
+.submit-btn {
+    background: linear-gradient(45deg, #667eea, #764ba2);
+    color: white;
+    padding: 1rem 2rem;
+    font-size: 1.1rem;
+    font-weight: 600;
+    border: none;
+    border-radius: 25px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    width: 100%;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.submit-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 25px rgba(102, 126, 234, 0.3);
+}
+
+.submit-btn:active {
+    transform: translateY(0);
+}
+
+.form-status {
+    margin-top: 1rem;
+    font-weight: 600;
+    font-size: 1rem;
+    text-align: center;
+    padding: 0.5rem;
+    border-radius: 5px;
+    transition: all 0.3s ease;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .contact-content {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+        padding: 1rem;
+    }
+    
+    .contact-form {
+        padding: 1.5rem;
+    }
+    
+    .contact-details li {
+        font-size: 1rem;
+    }
+    
+    .contact-details i {
+        width: 40px;
+        height: 40px;
+        font-size: 1rem;
+    }
+}
+
 /* Arreglos de float para el timeline */
 .experience-timeline::after {
     content: '';
@@ -931,38 +1106,39 @@ footer {
     clear: both;
 }
 
-/* Estilos para el modo oscuro */
-@media (prefers-color-scheme: dark) {
-    :root {
-        --primary-color: #3a86ff;
-        --secondary-color: #8338ec;
-        --dark-color: #1a1a2e;
-        --light-color: #f8f9fa;
-    }
-}
 
-/* Estilos para el modo claro */
+
+/* MODO CLARO */
 @media (prefers-color-scheme: light) {
     :root {
         --primary-color: #3a86ff;
         --secondary-color: #8338ec;
-        --dark-color: #f8f9fa;
+        --dark-color: #f0f2f5;
         --light-color: #1a1a2e;
+        /* Variables de texto para modo claro */
+        --text-primary: #1a1a2e;
+        --text-secondary: rgba(26, 26, 46, 0.8);
+        --text-muted: rgba(26, 26, 46, 0.7);
+        --background-card: rgba(26, 26, 46, 0.05);
+        --background-section: rgba(248, 249, 250, 0.8);
+        --border-color: rgba(26, 26, 46, 0.1);
     }
     
     body {
-        background-color: #f0f2f5;
+        background-color: var(--dark-color);
+        color: var(--text-primary);
     }
     
     .navbar {
-        background-color: rgba(248, 249, 250, 0.9);
+        background-color: rgba(248, 249, 250, 0.95);
+        backdrop-filter: blur(8px);
     }
     
-    .project-card, .timeline-content, .input-group input, .input-group textarea {
-        background-color: rgba(26, 26, 46, 0.05);
+    .nav-links {
+        background-color: var(--dark-color);
     }
     
-    .projects, footer {
-        background-color: rgba(248, 249, 250, 0.5);
+    .hero::before {
+        background: radial-gradient(ellipse at center, rgba(58, 134, 255, 0.1) 0%, rgba(240, 242, 245, 0) 70%);
     }
 }
