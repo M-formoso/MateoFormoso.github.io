@@ -247,7 +247,7 @@ function loadPreferences() {
     
     // Cargar preferencias o usar valores por defecto del sistema
     const systemPrefs = getSystemPreferences();
-    const savedTheme = window.portfolioSettings.theme || systemPrefs.theme;
+    const savedTheme = window.portfolioSettings.theme || 'light'; // Forzar tema claro por defecto
     const savedLang = window.portfolioSettings.language || systemPrefs.language;
     
     console.log('Loaded theme:', savedTheme, 'language:', savedLang);
@@ -261,6 +261,7 @@ function loadPreferences() {
         currentLang = savedLang;
     }
     
+    // IMPORTANTE: Actualizar display del idioma ANTES de traducir
     updateLanguageDisplay();
     translatePage();
     
@@ -373,23 +374,30 @@ function toggleLanguage(e) {
     }
 }
 
-// Actualizar display del idioma
+// Actualizar display del idioma - CORREGIDO con bandera argentina
 function updateLanguageDisplay() {
     const flagIcon = document.querySelector('.flag-icon');
     const langText = document.querySelector('.lang-text');
     
+    console.log('Updating language display for:', currentLang);
+    console.log('Flag icon element:', flagIcon);
+    console.log('Lang text element:', langText);
+    
     if (flagIcon && langText) {
         if (currentLang === 'es') {
-            flagIcon.textContent = '🇪🇸';
+            // Cambio: Bandera de Argentina en lugar de España
+            flagIcon.textContent = '🇦🇷';
             langText.textContent = 'ES';
         } else {
             flagIcon.textContent = '🇺🇸';
             langText.textContent = 'EN';
         }
-        console.log('Language display updated to:', currentLang);
+        console.log('Language display updated to:', currentLang, 'Flag:', flagIcon.textContent);
+    } else {
+        console.warn('Flag icon or lang text elements not found');
     }
 }
-/*
+
 // Escuchar cambios en las preferencias del sistema
 if (window.matchMedia) {
     const darkModeQuery = window.matchMedia('(prefers-color-scheme: dark)');
@@ -403,24 +411,7 @@ if (window.matchMedia) {
         }
     });
 }
-*/
-function loadPreferences() {
-    console.log('Loading preferences...');
-    
-    if (!window.portfolioSettings) {
-        window.portfolioSettings = {};
-    }
-    
-    // Forzar tema claro por defecto, ignorando preferencias del sistema
-    const savedTheme = window.portfolioSettings.theme || 'light';
-    const systemPrefs = getSystemPreferences();
-    const savedLang = window.portfolioSettings.language || systemPrefs.language;
-    
-    isDarkMode = savedTheme === 'dark';
-    applyTheme();
-    
-    // ... resto del código
-}
+
 // Traducir página
 function translatePage() {
     const t = translations[currentLang];
